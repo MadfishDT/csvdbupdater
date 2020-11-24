@@ -68,8 +68,8 @@ class App {
         console.log(`CSV "${this.csvInfo.keyField}" ---> mapping Table and Column Select:`);
         
         const dbTable = (await this.askSomthing('=> Select Mapping DB Table: '));
-        const dbColumn = (await this.askSomthing('=> Select Mapping DB Key Colum: '));
-        const dbUpdateField = (await this.askSomthing('=> Select Mapping DB Update Colum: '));
+        const dbColumn = (await this.askSomthing('=> Select Mapping DB Key Column: '));
+        const dbUpdateField = (await this.askSomthing('=> Select Mapping DB Update Column: '));
 
         const agree1 = (await this.askSomthing(`=> "${this.csvInfo.keyField}" mapping --> "${dbTable}/${dbColumn}" sure?(y/n)`));
         const agree2 = (await this.askSomthing(`=> "${this.csvInfo.updateField}" update --> "${dbTable}/${dbUpdateField}" sure?(y/n)`));
