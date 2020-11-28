@@ -3,7 +3,8 @@ import { iDBInfo, iCSVFileInfo } from './db/dbtype';
 import * as figlet from 'figlet';
 import { DBConnection } from './db/dbconnection';
 import * as fs from 'fs';
-import * as csv from 'csv-parser'
+import * as csv from 'csv-parser';
+import * as read from 'read';
 
 class App {
 
@@ -11,16 +12,20 @@ class App {
     private csvInfo: iCSVFileInfo | null;
     private dbConnection: DBConnection | null = null;
     private loaderTimer: NodeJS.Timeout | null = null;
-    private rl = readline.createInterface({ input: process.stdin, output: process.stdout, terminal: false })
+    
 
     constructor() {
         this.dbinfo = {};
         this.csvInfo = {};
     }
+
     private askSomthing = async (question: string, defaultValue?: string): Promise<string> => {
+
         return new Promise(resolve => {
-            this.rl.question(question, (aw) => {
+            const rl = readline.createInterface({ input: process.stdin, output: process.stdout, terminal: false });
+            rl.question(question, (aw) => {
                 resolve(aw && aw.length > 0 ? aw : (defaultValue ? defaultValue : ''));
+                rl.close();
             })
         });
     }
