@@ -1,6 +1,6 @@
 {
-  "name": "singlemysqlcsv-cli",
-  "version": "0.0.1",
+  "name": "csvtomysql-cli",
+  "version": "0.0.2",
   "description": "mysql single column update with csv file.",
   "main": "index.js",
   "bin": "dist/index.js",
